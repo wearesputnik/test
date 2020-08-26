@@ -1,0 +1,42 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<ContentPage xmlns="http://xamarin.com/schemas/2014/forms"
+             xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml"
+             xmlns:control="clr-namespace:Test"
+             Shell.NavBarIsVisible="False"
+             Shell.PresentationMode="ModalAnimated"
+             x:Class="Test.Views.ResizePhotoPage">
+    <ContentPage.Content>
+        <Grid BackgroundColor="Black">
+
+            <Grid.RowDefinitions>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="5*"/>
+                <RowDefinition Height="50*"/>
+                <RowDefinition Height="10*"/>
+                <RowDefinition Height="15*"/>
+                <RowDefinition Height="10*"/>
+            </Grid.RowDefinitions>
+
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="10*"/>
+                <ColumnDefinition Width="80*"/>
+                <ColumnDefinition Width="10*"/>
+            </Grid.ColumnDefinitions>
+
+            <control:FrameVIew x:Name="frame" Grid.Row="1" Grid.RowSpan="4" Grid.ColumnSpan="3">
+                <control:MoveScaleContainer >
+                    <control:MoveScaleContainer.Content>
+                        <Image   HorizontalOptions="FillAndExpand" VerticalOptions="FillAndExpand" Aspect="AspectFill" Source="{Binding Image}"/>
+                    </control:MoveScaleContainer.Content>
+                </control:MoveScaleContainer>
+            </control:FrameVIew>
+
+            <Image Grid.Row="2" Grid.ColumnSpan="3" HorizontalOptions="CenterAndExpand" Source="blue.png" Opacity="0.7" VerticalOptions="EndAndExpand"  Margin="0,0,0,20" Aspect="AspectFill" />
+
+            <Label Grid.Row="0" Grid.ColumnSpan="3" Text="Move and Scale"  HorizontalOptions="CenterAndExpand" VerticalOptions="CenterAndExpand" TextColor="White" FontSize="14" />
+
+            <Button Grid.Row="5" Grid.ColumnSpan="3" Text="Cancel" TextColor="White" FontSize="14" BackgroundColor="Transparent" HorizontalOptions="Start" Command="{Binding CancelCommand}"/>
+            <Button Grid.Row="5" Grid.ColumnSpan="3" Text="Choose" TextColor="White" FontSize="14" BackgroundColor="Transparent" HorizontalOptions="End" Clicked="Button_Clicked"/>
+        </Grid>
+    </ContentPage.Content>
+</ContentPage>
